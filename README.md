@@ -36,7 +36,7 @@ model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 
 This model is fine-tuned on the SUC 3.0 dataset. Using the Huggingface pipeline the model can be easily instantiated. However, it seems the tokenizer must be loaded separately to disable lower-casing of input strings:
 
-```
+```python
 from transformers import BertTokenizer,pipeline
 
 tok = BertTokenizer.from_pretrained('KB/bert-base-swedish-cased-ner', do_lower_case=False)
@@ -47,14 +47,14 @@ nlp('Idag släpper KB tre språkmodeller.')
 
 Running the Python code above should produce in something like the result below. Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations and `ORG` for organisations. These labels are subject to change.
 
-```
+```python
 [ { 'word': 'Idag', 'score': 0.9998126029968262, 'entity': 'TME' },
   { 'word': 'KB',   'score': 0.9814832210540771, 'entity': 'ORG' } ]
 ```
 
 The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string `Engelbert kör Volvo till Herrängens fotbollsklubb` gets tokenized as `Engel ##bert kör Volvo till Herr ##ängens fotbolls ##klubb`. To "glue" them back together one can use something like this:
 
-```
+```python
 tokens = nlp('Engelbert kör Volvo till Herrängens fotbollsklubb')
 
 l = []
@@ -67,7 +67,7 @@ for token in tokens:
 
 Which should result in the following:
 
-```
+```python
 [ { 'word': 'Engelbert',     'score': 0.99..., 'entity': 'PRS'},
   { 'word': 'Volvo',         'score': 0.99..., 'entity': 'OBJ'},
   { 'word': 'Herrängens',    'score': 0.99..., 'entity': 'ORG'},
@@ -79,7 +79,7 @@ Which should result in the following:
 
 The easisest way to do this is, again, using Huggingface Transformers:
 
-```
+```python
 from transformers import AutoModel,AutoTokenizer
 
 tok = AutoTokenizer.from_pretrained('KB/albert-base-swedish-cased-alpha', do_lower_case=False)
