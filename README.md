@@ -22,7 +22,7 @@ TensorFlow model weights will be released soon.
 
 ## Usage requirements
 
-The examples below requires Huggingface Transformers 2.4.1 and Pytorch 1.3.1 or greater. For Transformers<2.4.0 the tokenizer must be instantiated manually and the `do_lower_case` flag parameter set to `False` and `keep_accents` to `true` (for ALBERT).
+The examples below require Huggingface Transformers 2.4.1 and Pytorch 1.3.1 or greater. For Transformers<2.4.0 the tokenizer must be instantiated manually and the `do_lower_case` flag parameter set to `False` and `keep_accents` to `True` (for ALBERT).
 
 ### BERT Base Swedish
 
@@ -38,13 +38,12 @@ model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 
 ### BERT base fine-tuned for Swedish NER
 
-This model is fine-tuned on the SUC 3.0 dataset. Using the Huggingface pipeline the model can be easily instantiated. However, it seems the tokenizer must be loaded separately to disable lower-casing of input strings:
+This model is fine-tuned on the SUC 3.0 dataset. Using the Huggingface pipeline the model can be easily instantiated. For Transformer<2.4.1 it seems the tokenizer must be loaded separately to disable lower-casing of input strings:
 
 ```python
-from transformers import BertTokenizer,pipeline
+from transformers import pipeline
 
-tok = BertTokenizer.from_pretrained('KB/bert-base-swedish-cased-ner', do_lower_case=False)
-nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer=tok)
+nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer='KB/bert-base-swedish-cased-ner')
 
 nlp('Idag släpper KB tre språkmodeller.')
 ```
@@ -95,11 +94,7 @@ The easisest way to do this is, again, using Huggingface Transformers:
 ```python
 from transformers import AutoModel,AutoTokenizer
 
-tok = AutoTokenizer.from_pretrained(
-        'KB/albert-base-swedish-cased-alpha',
-        do_lower_case=False,
-        keep_accents=True)
-
+tok = AutoTokenizer.from_pretrained('KB/albert-base-swedish-cased-alpha'),
 model = AutoModel.from_pretrained('KB/albert-base-swedish-cased-alpha')
 ```
 
