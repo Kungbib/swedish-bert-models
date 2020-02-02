@@ -4,9 +4,9 @@ The National Library of Sweden / KBLab releases three pretrained language models
 
 The following three models are currently available:
 
-- **bert-base-swedish-cased** (v1) - A BERT trained with the same hyperparameters as first published by Google.
-- **bert-base-swedish-cased-ner** *(experimental)* - a BERT fine-tuned for NER using SUC 3.0.
-- **albert-base-swedish-cased-alpha** *(alpha)* - A first attempt at an ALBERT for Swedish.
+- **bert-base-swedish-cased** (*v1*) - A BERT trained with the same hyperparameters as first published by Google.
+- **bert-base-swedish-cased-ner** (*experimental*) - a BERT fine-tuned for NER using SUC 3.0.
+- **albert-base-swedish-cased-alpha** (*alpha*) - A first attempt at an ALBERT for Swedish.
 
 ## Files
 
