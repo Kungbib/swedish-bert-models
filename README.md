@@ -33,7 +33,7 @@ To create an environment where the examples can be run, run the following in an 
 # source venv/bin/activate
 # pip install --upgrade pip
 # pip install -r requirements.txt
-```bash
+```
 
 ### BERT Base Swedish
 
