@@ -20,9 +20,20 @@ All models are cased and trained with whole word masking.
 
 TensorFlow model weights will be released soon.
 
-## Usage requirements
+## Usage requirements / installation instructions
 
 The examples below require Huggingface Transformers 2.4.1 and Pytorch 1.3.1 or greater. For Transformers<2.4.0 the tokenizer must be instantiated manually and the `do_lower_case` flag parameter set to `False` and `keep_accents` to `True` (for ALBERT).
+
+To create an environment where the examples can be run, run the following in an terminal on your OS of choice.
+
+```
+# git clone https://github.com/Kungbib/swedish-bert-models
+# cd swedish-bert-models
+# python3 -m venv venv
+# source venv/bin/activate
+# pip install --upgrade pip
+# pip install -r requirements.txt
+```bash
 
 ### BERT Base Swedish
 
