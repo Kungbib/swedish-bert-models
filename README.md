@@ -8,9 +8,10 @@ The following three models are currently available:
 - **bert-base-swedish-cased-ner** *(experimental)* - a BERT fine-tuned for NER using SUC 3.0.
 - **albert-base-swedish-cased-alpha** *(alpha)* - A first attempt at an ALBERT for Swedish.
 
+
 ## BERT Base Swedish
 
-A standard BERT base for Swedish. Vocabulary size is ~50k and can be downloaded here. Models can be downloaded from Huggingface.
+A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k and can be downloaded here. Models can be downloaded from Huggingface.
 
 ```
 from transformers import AutoModel,AutoTokenizer
@@ -18,6 +19,7 @@ from transformers import AutoModel,AutoTokenizer
 tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased')
 model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 ```
+
 
 ## BERT base fine-tuned for Swedish NER
 
@@ -56,6 +58,7 @@ Which should result in the following:
 ```
 [{'word': 'Engelbert', 'score': 0.9997760057449341, 'entity': 'PRS'}, {'word': 'Volvo', 'score': 0.9970706105232239, 'entity': 'OBJ'}]
 ```
+
 
 ## ALBERT base
 
