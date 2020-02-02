@@ -11,12 +11,16 @@ The following three models are currently available:
 ## Files
 
 
+|-------------------------------|--------------|
+|  **bert-base-swedish-cased**  |  [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/config.json), [vocab](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/vocab.txt) |
+|-------------------------------|--------------|
+TensorFlow 
 
 ## Usage
 
 ### BERT Base Swedish
 
-A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k and can be downloaded here. Models can be downloaded from Huggingface.
+A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k and can be downloaded [here. Models can be downloaded from Huggingface.
 
 ```
 from transformers import AutoModel,AutoTokenizer
