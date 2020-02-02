@@ -90,7 +90,7 @@ model = AutoModel.from_pretrained('KB/albert-base-swedish-cased-alpha')
 
 ## Acknowledgements ❤️
 
-- Resources from Stockholms University, Umeå University and Swedish Language Bank at Gothenburg University was used when fine-tuning BERT for NER.
+- Resources from Stockholms University, Umeå University and Swedish Language Bank at Gothenburg University were used when fine-tuning BERT for NER.
 - Model pretraining was made partly in-house at the KBLab and partly (for material without active copyright) with the support of Cloud TPUs from Google's TensorFlow Research Cloud (TFRC).
 - Models are hosted on S3 by Huggingface 🤗
 
