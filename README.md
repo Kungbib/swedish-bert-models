@@ -8,8 +8,13 @@ The following three models are currently available:
 - **bert-base-swedish-cased-ner** *(experimental)* - a BERT fine-tuned for NER using SUC 3.0.
 - **albert-base-swedish-cased-alpha** *(alpha)* - A first attempt at an ALBERT for Swedish.
 
+## Files
 
-## BERT Base Swedish
+
+
+## Usage
+
+### BERT Base Swedish
 
 A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k and can be downloaded here. Models can be downloaded from Huggingface.
 
@@ -21,7 +26,7 @@ model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 ```
 
 
-## BERT base fine-tuned for Swedish NER
+### BERT base fine-tuned for Swedish NER
 
 This model is fine-tuned on the SUC 3.0 dataset. Using the Huggingface pipeline the model can be easily instantiated. However, it seems the tokenizer must be loaded separately to disable lower-casing of input strings:
 
@@ -41,10 +46,10 @@ Running the Python code above should produce in something like the result below.
   { 'word': 'KB',   'score': 0.9814832210540771, 'entity': 'ORG' } ]
 ```
 
-The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string `Engelbert kör Volvo` gets tokenized to `Engel ##bert kör Volvo`. To "glue" them back together one can use something like this:
+The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string `Engelbert kör Volvo till Herrängens fotbollsklubb` gets tokenized to `Engel ##bert kör Volvo till Herr ##ängens fotbolls ##klubb`. To "glue" them back together one can use something like this:
 
 ```
-tokens = nlp('Engelbert kör Volvo.')
+tokens = nlp('Engelbert kör Volvo till Herrängens fotbollsklubb')
 
 l = []
 for token in tokens:
@@ -57,12 +62,14 @@ for token in tokens:
 Which should result in the following:
 
 ```
-[ { 'word': 'Engelbert', 'score': 0.9997760057449341, 'entity': 'PRS'},
-  { 'word': 'Volvo',     'score': 0.9970706105232239, 'entity': 'OBJ'}]
+[ { 'word': 'Engelbert',     'score': 0.9997760057449341, 'entity': 'PRS'},
+  { 'word': 'Volvo',         'score': 0.9970706105232239, 'entity': 'OBJ'},
+  { 'word': 'Herrängens',    'score': 0.9970706105232239, 'entity': 'ORG'},
+  { 'word': 'fotbollsklubb', 'score': 0.9970706105232239, 'entity': 'ORG'} ]
 ```
 
 
-## ALBERT base
+### ALBERT base
 
 Vocab files (sentencepiece) are located here and here. Tensorflow checkpoint is here and Pytorch-model is here. The easisest way to do this is, again, using Huggingface Transformers:
 
@@ -72,4 +79,10 @@ from transformers import AutoModel,AutoTokenizer
 tok = AutoTokenizer.from_pretrained('KB/albert-base-swedish-cased-alpha', do_lower_case=False)
 model = AutoModel.from_pretrained('KB/albert-base-swedish-cased-alpha')
 ```
+
+## Acknowledgements ❤️
+
+- Resources from Stockholms universitet, Umeå universitet och Språkbanken Text was used when fine-tuning BERT for NER.
+- Model pretraining was made partly in-house at the KB lab and partly with the support of Cloud TPUs from Google's TensorFlow Research Cloud (TFRC).
+- Models are hosted on S3 by Huggingface
 
