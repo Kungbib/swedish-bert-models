@@ -34,10 +34,11 @@ nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer=tok)
 nlp('Idag släpper KB tre språkmodeller.')
 ```
 
-Running the Python code above should results in something like he text below. Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations and `ORG` for organisations. These labels are subject to change.
+Running the Python code above should produce in something like the result below. Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations and `ORG` for organisations. These labels are subject to change.
 
 ```
-[{'word': 'Idag', 'score': 0.9998126029968262, 'entity': 'TME'}, {'word': 'KB', 'score': 0.9814832210540771, 'entity': 'ORG'}]
+[ { 'word': 'Idag', 'score': 0.9998126029968262, 'entity': 'TME' },
+  { 'word': 'KB',   'score': 0.9814832210540771, 'entity': 'ORG' } ]
 ```
 
 The BERT tokenizer often splits strings into multiple tokens, to "glue" them back together one can use something the following:
@@ -56,7 +57,8 @@ for token in tokens:
 Which should result in the following:
 
 ```
-[{'word': 'Engelbert', 'score': 0.9997760057449341, 'entity': 'PRS'}, {'word': 'Volvo', 'score': 0.9970706105232239, 'entity': 'OBJ'}]
+[ { 'word': 'Engelbert', 'score': 0.9997760057449341, 'entity': 'PRS'},
+  { 'word': 'Volvo',     'score': 0.9970706105232239, 'entity': 'OBJ'}]
 ```
 
 
