@@ -54,7 +54,7 @@ Running the Python code above should produce in something like the result below.
   { 'word': 'KB',   'score': 0.9814832210540771, 'entity': 'ORG' } ]
 ```
 
-The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string `Engelbert kör Volvo till Herrängens fotbollsklubb` gets tokenized as `Engel ##bert kör Volvo till Herr ##ängens fotbolls ##klubb`. To "glue" them back together one can use something like this:
+The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string `Engelbert kör Volvo till Herrängens fotbollsklubb` gets tokenized as `Engel ##bert kör Volvo till Herr ##ängens fotbolls ##klubb`. To glue parts back together one can use something like this:
 
 ```python
 text = 'Engelbert tar Volvon till Tele2 Arena för att titta på Djurgården IF ' +\
