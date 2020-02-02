@@ -20,7 +20,9 @@ All models are cased and trained with whole word masking.
 
 TensorFlow model weights will be released soon.
 
-## Usage
+## Usage requirements
+
+The examples below requires Huggingface Transformers 2.4.1 and Pytorch 1.3.1 or greater. For Transformers<2.4.0 the tokenizer must be instantiated manually and the `do_lower_case` flag parameter set to `False` and `keep_accents` to `true` (for ALBERT).
 
 ### BERT Base Swedish
 
@@ -29,7 +31,7 @@ A standard BERT base for Swedish trained on a variety of sources. Vocabulary siz
 ```python
 from transformers import AutoModel,AutoTokenizer
 
-tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased', do_lower_case=False)
+tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased')
 model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 ```
 
