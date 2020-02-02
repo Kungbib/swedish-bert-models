@@ -47,7 +47,7 @@ nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer=tok)
 nlp('Idag släpper KB tre språkmodeller.')
 ```
 
-Running the Python code above should produce in something like the result below. Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations, EVN for events and `ORG` for organisations. These labels are subject to change.
+Running the Python code above should produce in something like the result below. Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations, `EVN` for events and `ORG` for organisations. These labels are subject to change.
 
 ```python
 [ { 'word': 'Idag', 'score': 0.9998126029968262, 'entity': 'TME' },
