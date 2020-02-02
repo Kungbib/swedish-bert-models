@@ -16,7 +16,7 @@ A standard BERT base for Swedish trained on a variety of sources. Vocabulary siz
 ```
 from transformers import AutoModel,AutoTokenizer
 
-tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased')
+tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased', do_lower_case=True)
 model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 ```
 
@@ -69,7 +69,7 @@ Vocab files (sentencepiece) are located here and here. Tensorflow checkpoint is 
 ```
 from transformers import AutoModel,AutoTokenizer
 
-tok = AutoTokenizer.from_pretrained('KB/albert-base-swedish-cased-alpha')
+tok = AutoTokenizer.from_pretrained('KB/albert-base-swedish-cased-alpha', do_lower_case=False)
 model = AutoModel.from_pretrained('KB/albert-base-swedish-cased-alpha')
 ```
 
