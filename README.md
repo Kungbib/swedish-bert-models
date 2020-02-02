@@ -93,7 +93,11 @@ The easisest way to do this is, again, using Huggingface Transformers:
 ```python
 from transformers import AutoModel,AutoTokenizer
 
-tok = AutoTokenizer.from_pretrained('KB/albert-base-swedish-cased-alpha', do_lower_case=False)
+tok = AutoTokenizer.from_pretrained(
+        'KB/albert-base-swedish-cased-alpha',
+        do_lower_case=False,
+        keep_accents=True)
+
 model = AutoModel.from_pretrained('KB/albert-base-swedish-cased-alpha')
 ```
 
