@@ -8,6 +8,8 @@ The following three models are currently available:
 - **bert-base-swedish-cased-ner** (*experimental*) - a BERT fine-tuned for NER using SUC 3.0.
 - **albert-base-swedish-cased-alpha** (*alpha*) - A first attempt at an ALBERT for Swedish.
 
+All models are cased and trained with whole word masking.
+
 ## Files
 
 | **name**                        | **files** |
