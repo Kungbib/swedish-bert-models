@@ -22,7 +22,7 @@ TensorFlow model weights will be released soon.
 
 ### BERT Base Swedish
 
-A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k and can be downloaded [here. Models can be downloaded from Huggingface.
+A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k. Using Huggingfae Transformers the model can be loaded as follows:
 
 ```
 from transformers import AutoModel,AutoTokenizer
@@ -77,7 +77,7 @@ Which should result in the following:
 
 ### ALBERT base
 
-Vocab files (sentencepiece) are located here and here. Tensorflow checkpoint is here and Pytorch-model is here. The easisest way to do this is, again, using Huggingface Transformers:
+The easisest way to do this is, again, using Huggingface Transformers:
 
 ```
 from transformers import AutoModel,AutoTokenizer
