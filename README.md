@@ -47,7 +47,7 @@ nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer=tok)
 nlp('Idag släpper KB tre språkmodeller.')
 ```
 
-Running the Python code above should produce in something like the result below. Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations and `ORG` for organisations. These labels are subject to change.
+Running the Python code above should produce in something like the result below. Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations, EVN for events and `ORG` for organisations. These labels are subject to change.
 
 ```python
 [ { 'word': 'Idag', 'score': 0.9998126029968262, 'entity': 'TME' },
@@ -57,7 +57,7 @@ Running the Python code above should produce in something like the result below.
 The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string `Engelbert kör Volvo till Herrängens fotbollsklubb` gets tokenized as `Engel ##bert kör Volvo till Herr ##ängens fotbolls ##klubb`. To "glue" them back together one can use something like this:
 
 ```python
-tokens = nlp('Engelbert kör Volvo till Herrängens fotbollsklubb')
+tokens = nlp('Engelbert kör Volvo till Tele2 Arena för att titta på Djurgården IF som spelar VM i fotboll klockan 14:00')
 
 l = []
 for token in tokens:
@@ -72,10 +72,15 @@ Which should result in the following:
 ```python
 [ { 'word': 'Engelbert',     'score': 0.99..., 'entity': 'PRS'},
   { 'word': 'Volvo',         'score': 0.99..., 'entity': 'OBJ'},
-  { 'word': 'Herrängens',    'score': 0.99..., 'entity': 'ORG'},
-  { 'word': 'fotbollsklubb', 'score': 0.99..., 'entity': 'ORG'} ]
+  { 'word': 'Tele2',         'score': 0.99..., 'entity': 'LOC'},
+  { 'word': 'Arena',         'score': 0.99..., 'entity': 'LOC'},
+  { 'word': 'Djurgården',    'score': 0.99..., 'entity': 'ORG'},
+  { 'word': 'IF',            'score': 0.99..., 'entity': 'ORG'},
+  { 'word': 'VM',            'score': 0.99..., 'entity': 'EVN'},
+  { 'word': 'klockan',       'score': 0.99..., 'entity': 'TME'},
+  { 'word': '14',            'score': 0.99..., 'entity': 'TME'},
+  { 'word': '00',            'score': 0.54..., 'entity': 'TME'} ]
 ```
-
 
 ### ALBERT base
 
