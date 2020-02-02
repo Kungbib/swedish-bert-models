@@ -27,7 +27,7 @@ A standard BERT base for Swedish trained on a variety of sources. Vocabulary siz
 ```python
 from transformers import AutoModel,AutoTokenizer
 
-tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased', do_lower_case=True)
+tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased', do_lower_case=False)
 model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 ```
 
