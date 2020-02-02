@@ -41,7 +41,7 @@ Running the Python code above should produce in something like the result below.
   { 'word': 'KB',   'score': 0.9814832210540771, 'entity': 'ORG' } ]
 ```
 
-The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string "Engelbert kör Volvo" tokenized to `Engel ##bert kör Volvo`. To "glue" them back together one can use something the following:
+The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string `Engelbert kör Volvo` gets tokenized to `Engel ##bert kör Volvo`. To "glue" them back together one can use something the following:
 
 ```
 tokens = nlp('Engelbert kör Volvo.')
