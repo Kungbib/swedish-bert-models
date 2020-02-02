@@ -24,7 +24,7 @@ TensorFlow model weights will be released soon.
 
 A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k. Using Huggingface Transformers the model can be loaded in Python as follows:
 
-```
+```python
 from transformers import AutoModel,AutoTokenizer
 
 tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased', do_lower_case=True)
