@@ -11,9 +11,8 @@ The following three models are currently available:
 ## Files
 
 
-|-------------------------------|--------------|
-|  **bert-base-swedish-cased**  |  [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/config.json), [vocab](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/vocab.txt) |
-|-------------------------------|--------------|
+| **bert-base-swedish-cased** | [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/config.json), [vocab](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/vocab.txt) |
+
 TensorFlow 
 
 ## Usage
