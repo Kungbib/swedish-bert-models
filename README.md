@@ -66,9 +66,11 @@ for token in nlp(text):
         l[-1]['word'] += token['word'][2:]
     else:
         l += [ token ]
+
+print(l)
 ```
 
-Which should result in the following:
+Which should result in the following (though less cleanly formated):
 
 ```python
 [ { 'word': 'Engelbert',     'score': 0.99..., 'entity': 'PRS'},
