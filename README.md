@@ -37,7 +37,7 @@ To create an environment where the examples can be run, run the following in an 
 
 ### BERT Base Swedish
 
-**UPDATE**: for Transformers==2.5.0 add the parameter `use_fast=False` to `AutoTokenizer.from_pretraned(...)` to retain accented characters such as Å, Ä and Ö.
+**UPDATE**: for Transformers==2.5.0 add the parameter `use_fast=False` to `AutoTokenizer.from_pretrained(...)` to retain accented characters such as Å, Ä and Ö.
 
 A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k. Using Huggingface Transformers the model can be loaded in Python as follows:
 
