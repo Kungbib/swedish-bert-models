@@ -22,6 +22,8 @@ TensorFlow model weights for NER will be released soon.
 
 ## Usage requirements / installation instructions
 
+**UPDATE**: for Transformers==2.5.0 add the parameter `use_fast=False` to `AutoTokenizer.from_pretraned(...)` to retain accented characters such as Å, Ä and Ö.
+
 The examples below require Huggingface Transformers 2.4.1 and Pytorch 1.3.1 or greater. For Transformers<2.4.0 the tokenizer must be instantiated manually and the `do_lower_case` flag parameter set to `False` and `keep_accents` to `True` (for ALBERT).
 
 To create an environment where the examples can be run, run the following in an terminal on your OS of choice.
