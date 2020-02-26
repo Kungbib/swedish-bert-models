@@ -1,5 +1,7 @@
 # Swedish BERT Models
 
+**Update 2020-02-26: Huggingface BERT-base and NER are updated** 
+
 The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description will be published later on.
 
 The following three models are currently available:
@@ -58,20 +60,25 @@ from transformers import pipeline
 
 nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer='KB/bert-base-swedish-cased-ner')
 
-nlp('Idag släpper KB tre språkmodeller.')
+nlp('Kalle och Pelle startar firman Kalle och Pelle.')
 ```
 
-Running the Python code above should produce in something like the result below. Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations, `EVN` for events and `ORG` for organisations. These labels are subject to change.
+Running the Python code above should produce in something like the result below. Note that the model disambiguates between the names of the persons and the name of the company.
 
 ```python
-[ { 'word': 'Idag', 'score': 0.9998126029968262, 'entity': 'TME' },
-  { 'word': 'KB',   'score': 0.9814832210540771, 'entity': 'ORG' } ]
+[ { 'word': 'Kalle', 'score': 0.9998126029968262, 'entity': 'PER' },
+  { 'word': 'Pelle', 'score': 0.9998126029968262, 'entity': 'PER' },
+  { 'word': 'Kalle',   'score': 0.9814832210540771, 'entity': 'ORG' }
+  { 'word': 'och',   'score': 0.9814832210540771, 'entity': 'ORG' }
+  { 'word': 'Pelle',   'score': 0.9814832210540771, 'entity': 'ORG' } ]
 ```
+
+Entity types used are `TME` for time, `PRS` for personal names, `LOC` for locations, `EVN` for events and `ORG` for organisations. These labels are subject to change.
 
 The BERT tokenizer often splits words into multiple tokens, with the subparts starting with `##`, for example the string `Engelbert kör Volvo till Herrängens fotbollsklubb` gets tokenized as `Engel ##bert kör Volvo till Herr ##ängens fotbolls ##klubb`. To glue parts back together one can use something like this:
 
 ```python
-text = 'Engelbert tar Volvon till Tele2 Arena för att titta på Djurgården IF ' +\
+text = 'Engelbert tar sin Rolls-Royce till Tele2 Arena för att titta på Djurgården IF ' +\
        'som spelar fotboll i VM klockan två på kvällen.'
 
 l = []
@@ -88,7 +95,9 @@ Which should result in the following (though less cleanly formated):
 
 ```python
 [ { 'word': 'Engelbert',     'score': 0.99..., 'entity': 'PRS'},
-  { 'word': 'Volvon',        'score': 0.99..., 'entity': 'OBJ'},
+  { 'word': 'Rolls',         'score': 0.99..., 'entity': 'OBJ'},
+  { 'word': '-',             'score': 0.99..., 'entity': 'OBJ'},
+  { 'word': 'Royce',         'score': 0.99..., 'entity': 'OBJ'},
   { 'word': 'Tele2',         'score': 0.99..., 'entity': 'LOC'},
   { 'word': 'Arena',         'score': 0.99..., 'entity': 'LOC'},
   { 'word': 'Djurgården',    'score': 0.99..., 'entity': 'ORG'},
