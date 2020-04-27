@@ -55,11 +55,11 @@ model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 
 This model is fine-tuned on the SUC 3.0 dataset. Preliminary evaluation compared other BERTs are as follows:
 
-| *model*     | *PER* | *ORG* | *LOC* | *TME* | *MSR* | *WRK* | *EVN* | *OBJ* | *AVG* |
-|-------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| AF-AI       | 0.913 | 0.780 | 0.913 | 0.655 | 0.828 | 0.596 | 0.716 | 0.710 | 0.876 |
-| BERT Multi  | 0.945 | 0.834 | 0.942 | 0.888 | 0.853 | 0.631 | 0.792 | 0.761 | 0.906 |
-| KB-BERT     | *0.96*1 | *0.884* | *0.958* | *0.906* | *0.890* | *0.720* | *0.834* | *0.770* | *0.928* |
+| **model**  | **PER** | **ORG** | **LOC** | **TME** | **MSR** | **WRK** | **EVN** | **OBJ** | **AVG** |
+|---------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+| AF-AI      |  0.913  | 0.780 | 0.913 | 0.655 | 0.828 | 0.596 | 0.716 | 0.710 | 0.876 |
+| BERT Multi |  0.945  | 0.834 | 0.942 | 0.888 | 0.853 | 0.631 | 0.792 | 0.761 | 0.906 |
+| KB-BERT    | **0.961** | **0.884** | **0.958** | **0.906** | **0.890** | **0.720** | **0.834** | **0.770** | **0.928** |
 
 Using the Huggingface pipeline the model can be easily instantiated. For Transformer<2.4.1 it seems the tokenizer must be loaded separately to disable lower-casing of input strings:
 
