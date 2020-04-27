@@ -16,7 +16,7 @@ All models are cased and trained with whole word masking.
 
 | **name**                        | **files** |
 |---------------------------------|-----------|
-| bert-base-swedish-cased         | [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/config.json), [vocab](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/vocab.txt), [pytorch_model.bin](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/pytorch_model.bin), [TF checkpoint](https://data.kb.se/datasets/2020/01/tf/bert_base_swedish_cased.tar) |
+| bert-base-swedish-cased         | [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/config.json), [vocab](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/vocab.txt), [pytorch_model.bin](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/pytorch_model.bin), [TF checkpoint](https://data.kb.se/datasets/2020/01/tf/bert_base_swedish_cased-v1.1.tar) |
 | bert-base-swedish-cased-ner     | [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased-ner/config.json), [vocab](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased-ner/vocab.txt) [pytorch_model.bin](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased-ner/pytorch_model.bin) |
 | albert-base-swedish-cased-alpha | [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/albert-base-swedish-cased-alpha/config.json), [sentencepiece model](https://s3.amazonaws.com/models.huggingface.co/bert/KB/albert-base-swedish-cased-alpha/spiece.model), [pytorch_model.bin](https://s3.amazonaws.com/models.huggingface.co/bert/KB/albert-base-swedish-cased-alpha/pytorch_model.bin), [TF checkpoint](https://data.kb.se/datasets/2020/01/tf/albert_base_swedish_cased.tar) |
 
@@ -53,7 +53,14 @@ model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 
 ### BERT base fine-tuned for Swedish NER
 
-This model is fine-tuned on the SUC 3.0 dataset. Using the Huggingface pipeline the model can be easily instantiated. For Transformer<2.4.1 it seems the tokenizer must be loaded separately to disable lower-casing of input strings:
+This model is fine-tuned on the SUC 3.0 dataset. Preliminary evaluation compared other BERTs are as follows:
+
+|-*model*-----|-*PER*-|-*ORG*-|-*LOC*-|-*TME*-|-*MSR*-|-*WRK*-|-*EVN*-|-*OBJ*-|-*AVG*-|
+| AF-AI       | 0.913 | 0.780 | 0.913 | 0.655 | 0.828 | 0.596 | 0.716 | 0.710 | 0.876 |
+| BERT Multi  | 0.945 | 0.834 | 0.942 | 0.888 | 0.853 | 0.631 | 0.792 | 0.761 | 0.906 |
+| KB-BERT     | *0.96*1 | *0.884* | *0.958* | *0.906* | *0.890* | *0.720* | *0.834* | *0.770* | *0.928* |
+
+Using the Huggingface pipeline the model can be easily instantiated. For Transformer<2.4.1 it seems the tokenizer must be loaded separately to disable lower-casing of input strings:
 
 ```python
 from transformers import pipeline
