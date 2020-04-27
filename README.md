@@ -53,7 +53,7 @@ model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
 
 ### BERT base fine-tuned for Swedish NER
 
-This model is fine-tuned on the SUC 3.0 dataset. Preliminary evaluation compared other BERTs are as follows:
+This model is fine-tuned on the SUC 3.0 dataset. Preliminary evaluation (F1) compared other BERTs are as follows:
 
 | **model**  | **PER** | **ORG** | **LOC** | **TME** | **MSR** | **WRK** | **EVN** | **OBJ** | **AVG** |
 |---------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
