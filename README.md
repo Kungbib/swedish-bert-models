@@ -2,7 +2,7 @@
 
 **Update 2020-02-26: Huggingface BERT-base and NER are updated** 
 
-The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description is availale (https://arxiv.org/abs/2007.01658)[here].
+The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description is available [here](https://arxiv.org/abs/2007.01658).
 
 The following three models are currently available:
 
