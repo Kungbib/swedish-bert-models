@@ -134,7 +134,7 @@ model = AutoModel.from_pretrained('KB/albert-base-swedish-cased-alpha')
 - Model pretraining was made partly in-house at the KBLab and partly (for material without active copyright) with the support of Cloud TPUs from Google's TensorFlow Research Cloud (TFRC).
 - Models are hosted on S3 by Huggingface 🤗
 
-## Citiation in BibTex format
+## Citation in BibTex format
 If you wish to reference this work, please use to following:
 ```
 @misc{swedish-bert,
