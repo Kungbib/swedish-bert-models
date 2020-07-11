@@ -6,6 +6,8 @@
 
 **Update 2020-07-03: You can now [cite](#citation-in-bibtex-format) us!**
 
+**Update 2020-07-11: TF models available through Huggingface Transformers**
+
 The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description is available [here](https://arxiv.org/abs/2007.01658).
 
 The following three models are currently available:
@@ -23,8 +25,6 @@ All models are cased and trained with whole word masking.
 | bert-base-swedish-cased         | [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/config.json), [vocab](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/vocab.txt), [pytorch_model.bin](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased/pytorch_model.bin), [TF checkpoint](https://data.kb.se/datasets/2020/01/tf/bert_base_swedish_cased-v1.1.tar) |
 | bert-base-swedish-cased-ner     | [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased-ner/config.json), [vocab](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased-ner/vocab.txt) [pytorch_model.bin](https://s3.amazonaws.com/models.huggingface.co/bert/KB/bert-base-swedish-cased-ner/pytorch_model.bin) |
 | albert-base-swedish-cased-alpha | [config](https://s3.amazonaws.com/models.huggingface.co/bert/KB/albert-base-swedish-cased-alpha/config.json), [sentencepiece model](https://s3.amazonaws.com/models.huggingface.co/bert/KB/albert-base-swedish-cased-alpha/spiece.model), [pytorch_model.bin](https://s3.amazonaws.com/models.huggingface.co/bert/KB/albert-base-swedish-cased-alpha/pytorch_model.bin), [TF checkpoint](https://data.kb.se/datasets/2020/01/tf/albert_base_swedish_cased.tar) |
-
-TensorFlow model weights for NER will be released soon.
 
 ## Usage requirements / installation instructions
 
@@ -48,10 +48,14 @@ To create an environment where the examples can be run, run the following in an 
 A standard BERT base for Swedish trained on a variety of sources. Vocabulary size is ~50k. Using Huggingface Transformers the model can be loaded in Python as follows:
 
 ```python
-from transformers import AutoModel,AutoTokenizer
+from transformers import AutoModel,AutoTokenizer,TFAutoModel
 
 tok = AutoTokenizer.from_pretrained('KB/bert-base-swedish-cased')
 model = AutoModel.from_pretrained('KB/bert-base-swedish-cased')
+
+# Using TF models
+model = TFAutoModel.from_pretrained('KB/bert-base-swedish-cased')
+
 ```
 
 
@@ -69,11 +73,16 @@ This model is fine-tuned on the SUC 3.0 dataset. Preliminary evaluation (F1) com
 Using the Huggingface pipeline the model can be easily instantiated. For Transformer<2.4.1 it seems the tokenizer must be loaded separately to disable lower-casing of input strings:
 
 ```python
-from transformers import pipeline
+from transformers import pipeline,TFBertForTokenClassification
 
 nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer='KB/bert-base-swedish-cased-ner')
 
 nlp('Kalle och Pelle startar firman Kalle och Pelle.')
+
+# Specifically using Tensorflow
+
+tf = TFBertForTokenClassification.from_pretrained('KB/bert-base-swedish-cased-ner')
+nlp = pipeline('ner', model=tf, tokenizer='KB/bert-base-swedish-cased-ner')
 ```
 
 Running the Python code above should produce in something like the result below. Note that the model disambiguates between the names of the persons and the name of the company.
