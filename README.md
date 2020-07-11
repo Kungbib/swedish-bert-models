@@ -106,11 +106,25 @@ text = 'Engelbert tar sin Rolls-Royce till Tele2 Arena för att titta på Djurg�
        'som spelar fotboll i VM klockan två på kvällen.'
 
 l = []
-for token in nlp(text):
+t = nlp(text)
+in_word=False
+nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer='KB/bert-base-swedish-cased-ner', ignore_labels=[])
+for i,token in enumerate(t):
+    if token['entity'] == 'O':
+        in_word = False
+        continue
+
     if token['word'].startswith('##'):
+        # deal with orphaned ##-tokens
+        if not in_word:
+            l += [ t[i-1] ]
+            l[-1]['entity'] = token['entity']
+        
         l[-1]['word'] += token['word'][2:]
     else:
         l += [ token ]
+
+    in_word = True
 
 print(l)
 ```
