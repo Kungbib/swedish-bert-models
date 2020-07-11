@@ -41,6 +41,8 @@ To create an environment where the examples can be run, run the following in an 
 # pip install -r requirements.txt
 ```
 
+On some platforms, notably MacOSX < 10.15, you may have to install a Rust compiler for Transformers to install.
+
 ### BERT Base Swedish
 
 **UPDATE**: for Transformers==2.5.0 add the parameter `use_fast=False` to `AutoTokenizer.from_pretrained(...)` to retain accented characters such as Å, Ä and Ö.
