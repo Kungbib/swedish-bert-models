@@ -115,7 +115,7 @@ for i,token in enumerate(t):
         continue
 
     if token['word'].startswith('##'):
-        # deal with orphaned ##-tokens
+        # deal with (one level of) orphaned ##-tokens
         if not in_word:
             l += [ t[i-1] ]
             l[-1]['entity'] = token['entity']
