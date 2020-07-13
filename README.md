@@ -105,10 +105,11 @@ The BERT tokenizer often splits words into multiple tokens, with the subparts st
 text = 'Engelbert tar sin Rolls-Royce till Tele2 Arena för att titta på Djurgården IF ' +\
        'som spelar fotboll i VM klockan två på kvällen.'
 
+nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer='KB/bert-base-swedish-cased-ner', ignore_labels=[])
 l = []
 t = nlp(text)
 in_word=False
-nlp = pipeline('ner', model='KB/bert-base-swedish-cased-ner', tokenizer='KB/bert-base-swedish-cased-ner', ignore_labels=[])
+
 for i,token in enumerate(t):
     if token['entity'] == 'O':
         in_word = False
