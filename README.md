@@ -169,10 +169,12 @@ model = AutoModel.from_pretrained('KB/albert-base-swedish-cased-alpha')
 If you wish to reference this work, please use to following:
 ```
 @misc{swedish-bert,
-   Author = {Martin Malmsten and Love Börjeson and Chris Haffenden},
-   Title = {Playing with Words at the National Library of Sweden -- Making a Swedish BERT},
-   Year = {2020},
-   Eprint = {arXiv:2007.01658},
+    title={Playing with Words at the National Library of Sweden -- Making a Swedish BERT},
+    author={Martin Malmsten and Love Börjeson and Chris Haffenden},
+    year={2020},
+    eprint={2007.01658},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
 }
 ```
 
