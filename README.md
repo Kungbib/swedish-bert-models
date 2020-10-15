@@ -8,7 +8,9 @@
 
 **Update 2020-07-11: TF models available through Huggingface Transformers and comparison to BotXO model**
 
-The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description is available [here](https://arxiv.org/abs/2007.01658).
+**Update 2020-10-15: Added POS and experimental QA models.
+
+The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description is available in our paper [*Playing with words at the national library - Making a Swedish BERT*](https://arxiv.org/abs/2007.01658).
 
 The following five models are currently available:
 
