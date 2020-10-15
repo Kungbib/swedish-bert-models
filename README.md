@@ -5,6 +5,7 @@
 **Update 2020-07-03:** You can now [cite](#citation-in-bibtex-format) us!  
 **Update 2020-07-11:** TF models available through Huggingface Transformers and comparison to BotXO model  
 **Update 2020-10-15:** Added POS and experimental QA models.  
+**Update 2020-10-15:** Added Electra-small generator and discriminator models.  
 
 The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description is available in our paper [*Playing with words at the national library - Making a Swedish BERT*](https://arxiv.org/abs/2007.01658).
 
@@ -15,6 +16,7 @@ The following five models are currently available:
 - **bert-base-swedish-cased-pos** (*experimental*) - a BERT fine-tuned for POS using SUC 3.0.
 - **bert-base-swedish-cased-squad-experimental** (*experimental*) - A first attempt att a Swedish QA using machine translated SQuAD 2.0 dataset
 - **albert-base-swedish-cased-alpha** (*alpha*) - A first attempt at an ALBERT for Swedish.
+- **electra-small-swedish-cased** - Small Electra models (generator and discriminator) trained for one million steps.
 
 All models are cased and trained with whole word masking.
 
