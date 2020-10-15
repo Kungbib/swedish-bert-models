@@ -1,10 +1,10 @@
 # Swedish BERT Models
 
-**Update 2020-02-26:** Huggingface BERT-base and NER are updated
-**Update 2020-04-27:** Added some comparisons to NER performance of this and other BERTs
-**Update 2020-07-03:** You can now [cite](#citation-in-bibtex-format) us!
-**Update 2020-07-11:** TF models available through Huggingface Transformers and comparison to BotXO model
-**Update 2020-10-15:** Added POS and experimental QA models.
+**Update 2020-02-26:** Huggingface BERT-base and NER are updated  
+**Update 2020-04-27:** Added some comparisons to NER performance of this and other BERTs  
+**Update 2020-07-03:** You can now [cite](#citation-in-bibtex-format) us!  
+**Update 2020-07-11:** TF models available through Huggingface Transformers and comparison to BotXO model  
+**Update 2020-10-15:** Added POS and experimental QA models.  
 
 The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description is available in our paper [*Playing with words at the national library - Making a Swedish BERT*](https://arxiv.org/abs/2007.01658).
 
