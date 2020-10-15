@@ -10,10 +10,12 @@
 
 The National Library of Sweden / KBLab releases three pretrained language models based on BERT and ALBERT. The models are trained on aproximately 15-20GB of text (200M sentences, 3000M tokens) from various sources (books, news, government publications, swedish wikipedia and internet forums) aiming to provide a representative BERT model for Swedish text. A more complete description is available [here](https://arxiv.org/abs/2007.01658).
 
-The following three models are currently available:
+The following five models are currently available:
 
 - **bert-base-swedish-cased** (*v1.1*) - A BERT trained with the same hyperparameters as first published by Google.
 - **bert-base-swedish-cased-ner** (*experimental*) - a BERT fine-tuned for NER using SUC 3.0.
+- **bert-base-swedish-cased-pos** (*experimental*) - a BERT fine-tuned for POS using SUC 3.0.
+- **bert-base-swedish-cased-squad-experimental** (*experimental*) - A first attempt att a Swedish QA using machine translated SQuAD 2.0 dataset
 - **albert-base-swedish-cased-alpha** (*alpha*) - A first attempt at an ALBERT for Swedish.
 
 All models are cased and trained with whole word masking.
